@@ -20,4 +20,10 @@ class Race extends Model
         'surface' => 'required',
         'distance' => 'required|integer',
     );
+
+    // Horseモデルへのリレーションを設定
+    public function horses()
+    {
+        return $this->hasMany('App\Models\Horse');
+    }
 }
