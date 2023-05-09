@@ -16,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// race.indexへのルーティング
 Route::get('race', 'App\Http\Controllers\RaceController@index');
+
+// race.addへのルーティング
+Route::get('race/add', 'App\Http\Controllers\RaceController@add');
+// race.createへのルーティング
+Route::post('race/add', 'App\Http\Controllers\RaceController@create');
