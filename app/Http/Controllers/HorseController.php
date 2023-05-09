@@ -10,8 +10,10 @@ class HorseController extends Controller
 {
     public function index(Request $request)
     {
-        $items = Horse::all();
-        return view('horse.index', ['items' => $items]);
+        // race_idによる検索
+        $race_id = $request->input('race_id');
+        $horses = Horse::where('race_id', $race_id)->get();
+        return view('horse.index', ['horses' => $horses]);
     }
 
     public function add(Request $request)

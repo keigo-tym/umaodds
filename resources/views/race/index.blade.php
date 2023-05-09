@@ -12,7 +12,7 @@
     <tr><th>name</th><th>date</th><th>place</th><th>surface</th><th>distance</th></tr>
     @foreach ($items as $item)
         <tr>
-            <td>{{$item->name}}</td>
+            <td><a href="{{ route('horse.index', ['race_id' => $item->id]) }}">{{$item->name}}</a></td>
             <td>{{$item->date}}</td>
             <td>{{$item->place}}</td>
             <td>{{$item->surface}}</td>

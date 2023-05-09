@@ -25,7 +25,7 @@ Route::get('race/add', 'App\Http\Controllers\RaceController@add')->name('race.ad
 Route::post('race/add', 'App\Http\Controllers\RaceController@create');
 
 // horse.indexへのルーティング
-Route::get('horse', 'App\Http\Controllers\HorseController@index');
+Route::get('horse', 'App\Http\Controllers\HorseController@index')->name('horse.index');
 
 // horse.addへのルーティング
 Route::get('horse/add', 'App\Http\Controllers\HorseController@add');
