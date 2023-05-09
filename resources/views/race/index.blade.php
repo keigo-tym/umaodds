@@ -4,7 +4,7 @@
     
 @section('menubar')
     @parent
-    レースページ
+    レース一覧ページ
 @endsection
 
 @section('content')
