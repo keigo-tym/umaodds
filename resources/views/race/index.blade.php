@@ -12,11 +12,11 @@
     <tr><th>name</th><th>date</th><th>place</th><th>surface</th><th>distance</th></tr>
     @foreach ($items as $item)
         <tr>
-            <td>{{$items->name}}</td>
-            <td>{{$items->date}}</td>
-            <td>{{$items->place}}</td>
-            <td>{{$items->surface}}</td>
-            <td>{{$items->distance}}</td>
+            <td>{{$item->name}}</td>
+            <td>{{$item->date}}</td>
+            <td>{{$item->place}}</td>
+            <td>{{$item->surface}}</td>
+            <td>{{$item->distance}}</td>
         </tr>
     @endforeach
     </table>
