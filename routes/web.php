@@ -23,3 +23,11 @@ Route::get('race', 'App\Http\Controllers\RaceController@index');
 Route::get('race/add', 'App\Http\Controllers\RaceController@add');
 // race.createへのルーティング
 Route::post('race/add', 'App\Http\Controllers\RaceController@create');
+
+// horse.indexへのルーティング
+Route::get('horse', 'App\Http\Controllers\HorseController@index');
+
+// horse.addへのルーティング
+Route::get('horse/add', 'App\Http\Controllers\HorseController@add');
+// horse.createへのルーティング
+Route::post('horse/add', 'App\Http\Controllers\HorseController@create');
