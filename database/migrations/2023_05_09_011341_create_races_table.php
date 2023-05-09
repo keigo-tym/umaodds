@@ -16,7 +16,7 @@ return new class extends Migration
             // レース名
             $table->string('name');
             // 開催日
-            $table->data('data');
+            $table->date('date');
             // 開催場所
             $table->string('place');
             // コース
