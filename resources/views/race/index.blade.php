@@ -20,6 +20,9 @@
         </tr>
     @endforeach
     </table>
+    <a href="{{ route('race.add') }}">
+        <button type="button">レース追加</button>
+    </a>
 @endsection
 
 @section('footer')

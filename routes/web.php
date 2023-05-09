@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::get('race', 'App\Http\Controllers\RaceController@index');
 
 // race.addへのルーティング
-Route::get('race/add', 'App\Http\Controllers\RaceController@add');
+Route::get('race/add', 'App\Http\Controllers\RaceController@add')->name('race.add');
 // race.createへのルーティング
 Route::post('race/add', 'App\Http\Controllers\RaceController@create');
 
