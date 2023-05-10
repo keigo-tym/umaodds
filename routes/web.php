@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 // race.indexへのルーティング
-Route::get('race', 'App\Http\Controllers\RaceController@index');
+Route::get('race', 'App\Http\Controllers\RaceController@index')->name('race.index');
 
 // race.addへのルーティング
 Route::get('race/add', 'App\Http\Controllers\RaceController@add')->name('race.add');
