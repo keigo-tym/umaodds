@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // ホースモデルを使用
 use App\Models\Horse;
+// redirectを使用
+use Illuminate\Support\Facades\Redirect;
+// routeを使用
+use Illuminate\Support\Facades\Route;
 
 class HorseController extends Controller
 {
@@ -28,6 +32,7 @@ class HorseController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $horse->fill($form)->save();
-        return redirect('/horse');
+        $race_id = $request->input('race_id');
+        return Redirect::to(Route::has('horse.index') ? route('horse.index', ['race_id' => $race_id]) : '/horse?race_id=' . $race_id);
     }
 }
