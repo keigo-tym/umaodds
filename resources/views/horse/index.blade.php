@@ -20,6 +20,10 @@
         </tr>
     @endforeach
     </table>
+    {{-- horse追加ボタン --}}
+    <a href="{{ route('horse.add') }}">
+        <button type="button">出走馬追加</button>
+    </a>
 @endsection
 
 @section('footer')

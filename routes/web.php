@@ -28,6 +28,6 @@ Route::post('race/add', 'App\Http\Controllers\RaceController@create');
 Route::get('horse', 'App\Http\Controllers\HorseController@index')->name('horse.index');
 
 // horse.addへのルーティング
-Route::get('horse/add', 'App\Http\Controllers\HorseController@add');
+Route::get('horse/add', 'App\Http\Controllers\HorseController@add')->name('horse.add');
 // horse.createへのルーティング
 Route::post('horse/add', 'App\Http\Controllers\HorseController@create');
