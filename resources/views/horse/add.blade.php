@@ -11,8 +11,8 @@
     <form action="/horse/add" method="post">
     <table>
         @csrf
-        {{-- race_idの入力 --}}
-        <tr><th>race_id:</th><td><input type="number" name="race_id" value="{{old('race_id')}}"></td></tr>
+        {{-- race_idの入力 hidden要素を用いて、race_idを渡す --}}
+        <input type="hidden" name="race_id" value="{{ request()->get('race_id') }}">
         {{-- frame_numberの入力 --}}
         <tr><th>frame_number:</th><td><input type="number" name="frame_number" value="{{old('frame_number')}}"></td></tr>
         {{-- horse_numberの入力 --}}
