@@ -44,10 +44,12 @@ class HorseController extends Controller
 
     public function update(Request $request, $race_id)
     {
+        // 入力はオッズのみ
         $this->validate($request, ['advance_odds' => 'nullable|numeric', 'previous_odds' => 'nullable|numeric', 'twelve_odds' => 'nullable|numeric', 'fifteen_odds' => 'nullable|numeric']);
         $form = $request->all();
         unset($form['_token']);
 
+        // ホースidごとにオッズを更新
         foreach($form['id'] as $key => $value) {
             $horse = Horse::find($value);
             $horse->advance_odds = $form['advance_odds'][$key];
