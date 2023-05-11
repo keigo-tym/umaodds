@@ -24,6 +24,11 @@
     <a href="{{ route('horse.add', ['race_id' => request()->get('race_id')]) }}">
         <button type="button">出走馬追加</button>
     </a>
+    <br>
+    {{-- race.indexへ戻るボタン --}}
+    <a href="{{ route('race.index') }}">
+        <button type="button">戻る</button>
+    </a>
 @endsection
 
 @section('footer')

@@ -19,6 +19,10 @@
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
     </form>
+    {{-- race.indexへ戻るボタン --}}
+    <a href="{{ route('race.index') }}">
+        <button type="button">戻る</button>
+    </a>
 @endsection
 
 @section('footer')
