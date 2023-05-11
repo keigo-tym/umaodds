@@ -31,3 +31,8 @@ Route::get('horse', 'App\Http\Controllers\HorseController@index')->name('horse.i
 Route::get('horse/add', 'App\Http\Controllers\HorseController@add')->name('horse.add');
 // horse.createへのルーティング
 Route::post('horse/add', 'App\Http\Controllers\HorseController@create');
+
+// horse.editへのルーティング
+Route::get('horse/edit', 'App\Http\Controllers\HorseController@edit')->name('horse.edit');
+// horse.updateへのルーティング
+Route::post('horse/edit', 'App\Http\Controllers\HorseController@update');
