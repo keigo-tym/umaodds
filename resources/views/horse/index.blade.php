@@ -23,10 +23,16 @@
         <button type="button">出走馬追加</button>
     </a>
     <br>
+    {{-- horse?race_id=1からhorse/edit/1へのリンク --}}
+    <a href="{{ route('horse.edit', ['race_id' => $race_id]) }}">
+        <button type="button">オッズ更新</button>
+    </a>
+    <br>
     {{-- race.indexへ戻るボタン --}}
     <a href="{{ route('race.index') }}">
         <button type="button">戻る</button>
     </a>
+
 @endsection
 
 @section('footer')

@@ -17,7 +17,7 @@ class HorseController extends Controller
         // race_idによる検索
         $race_id = $request->input('race_id');
         $horses = Horse::where('race_id', $race_id)->get();
-        return view('horse.index', ['horses' => $horses]);
+        return view('horse.index', ['horses' => $horses, 'race_id' => $race_id]);
     }
 
     public function add(Request $request)
