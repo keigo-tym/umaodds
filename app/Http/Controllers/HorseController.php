@@ -35,4 +35,28 @@ class HorseController extends Controller
         $race_id = $request->input('race_id');
         return Redirect::to(Route::has('horse.index') ? route('horse.index', ['race_id' => $race_id]) : '/horse?race_id=' . $race_id);
     }
+    // race_idごとにホースを表示する
+    public function edit($race_id)
+    {
+        $horses = Horse::where('race_id', $race_id)->get();
+        return view('horse.edit', compact('horses', 'race_id'));
+    }
+
+    public function update(Request $request, $race_id)
+    {
+        $this->validate($request, ['advance_odds' => 'nullable|numeric', 'previous_odds' => 'nullable|numeric', 'twelve_odds' => 'nullable|numeric', 'fifteen_odds' => 'nullable|numeric']);
+        $form = $request->all();
+        unset($form['_token']);
+
+        foreach($form['id'] as $key => $value) {
+            $horse = Horse::find($value);
+            $horse->advance_odds = $form['advance_odds'][$key];
+            $horse->previous_odds = $form['previous_odds'][$key];
+            $horse->twelve_odds = $form['twelve_odds'][$key];
+            $horse->fifteen_odds = $form['fifteen_odds'][$key];
+            $horse->save();
+        }
+            return redirect()->route('horse.index', ['race_id' => $race_id]);
+    }
+
 }
