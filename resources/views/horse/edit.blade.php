@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('horse.update', ['race_id'] => $race_id) }}" method="post">
+<form action="{{ route('horse.update', ['race_id' => $race_id]) }}" method="post">
     @csrf
     @method('PUT')
     <table>
@@ -29,10 +29,10 @@
                 <td>{{ $horse->frame_number }}</td>
                 <td>{{ $horse->horse_number }}</td>
                 <td>{{ $horse->name }}</td>
-                <td><input type="number" step="0.1" name="advance_odds" value="{{ $horse->advance_odds }}"></td>
-                <td><input type="number" step="0.1" name="previous_odds" value="{{ $horse->previous_odds }}"></td>
-                <td><input type="number" step="0.1" name="twelve_odds" value="{{ $horse->twelve_odds }}"></td>
-                <td><input type="number" step="0.1" name="fifteen_odds" value="{{ $horse->fifteen_odds }}"></td>
+                <td><input type="number" step="0.1" name="advance_odds[]" value="{{ $horse->advance_odds }}"></td>
+                <td><input type="number" step="0.1" name="previous_odds[]" value="{{ $horse->previous_odds }}"></td>
+                <td><input type="number" step="0.1" name="twelve_odds[]" value="{{ $horse->twelve_odds }}"></td>
+                <td><input type="number" step="0.1" name="fifteen_odds[]" value="{{ $horse->fifteen_odds }}"></td>
                 {{-- idをhiddenで渡す --}}
                 <input type="hidden" name="id[]" value="{{ $horse->id }}">
             </tr>

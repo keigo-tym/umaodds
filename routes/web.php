@@ -33,6 +33,6 @@ Route::get('horse/add', 'App\Http\Controllers\HorseController@add')->name('horse
 Route::post('horse/add', 'App\Http\Controllers\HorseController@create');
 
 // horse.editへのルーティング
-Route::get('horse/edit', 'App\Http\Controllers\HorseController@edit')->name('horse.edit');
+Route::get('horse/edit/{race_id}', 'App\Http\Controllers\HorseController@edit')->name('horse.edit');
 // horse.updateへのルーティング
-Route::post('horse/edit', 'App\Http\Controllers\HorseController@update');
+Route::post('horse/edit/{race_id}', 'App\Http\Controllers\HorseController@update')->name('horse.update');
