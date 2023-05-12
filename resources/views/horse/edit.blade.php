@@ -8,36 +8,16 @@
 @endsection
 
 @section('content')
-<form action="{{ route('horse.update', ['race_id' => $race_id]) }}" method="post">
+<form action="{{ route('horse.update', ['id' => $horse->id]) }}" method="post">
     @csrf
-    @method('PUT')
     <table>
-        <thead>
-            <tr>
-                <th>枠番</th>
-                <th>馬番</th>
-                <th>馬名</th>
-                <th>前売りオッズ</th>
-                <th>前日オッズ</th>
-                <th>12時オッズ</th>
-                <th>15時オッズ</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($horses as $horse)
-            <tr>
-                <td>{{ $horse->frame_number }}</td>
-                <td>{{ $horse->horse_number }}</td>
-                <td>{{ $horse->name }}</td>
-                <td><input type="number" step="0.1" name="advance_odds[]" value="{{ $horse->advance_odds }}"></td>
-                <td><input type="number" step="0.1" name="previous_odds[]" value="{{ $horse->previous_odds }}"></td>
-                <td><input type="number" step="0.1" name="twelve_odds[]" value="{{ $horse->twelve_odds }}"></td>
-                <td><input type="number" step="0.1" name="fifteen_odds[]" value="{{ $horse->fifteen_odds }}"></td>
-                {{-- idをhiddenで渡す --}}
-                <input type="hidden" name="id[]" value="{{ $horse->id }}">
-            </tr>
-            @endforeach
-        </tbody>
+        <tr><th>枠番</th><td>{{$horse->frame_number}}</td></tr>
+        <tr><th>馬番</th><td>{{$horse->horse_number}}</td></tr>
+        <tr><th>馬名</th><td>{{$horse->name}}</td></tr>
+        <tr><th>前売りオッズ</th><td><input type="number" step="0.1" name="advance_odds" value="{{$horse->advance_odds}}"></td></tr>
+        <tr><th>前日オッズ</th><td><input type="number" step="0.1" name="previous_odds" value="{{$horse->previous_odds}}"></td></tr>
+        <tr><th>12時オッズ</th><td><input type="number" step="0.1" name="twelve_odds" value="{{$horse->twelve_odds}}"></td></tr>
+        <tr><th>15時オッズ</th><td><input type="number" step="0.1" name="fifteen_odds" value="{{$horse->fifteen_odds}}"></td></tr>
     </table>
     <button type="submit">オッズ更新</button>
 </form>

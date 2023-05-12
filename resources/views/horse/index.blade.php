@@ -9,12 +9,16 @@
 
 @section('content')
     <table>
-    <tr><th>枠番</th><th>馬番</th><th>馬名</th></tr>
+    <tr><th>枠番</th><th>馬番</th><th>馬名</th><th>前売りオッズ</th><th>前日オッズ</th><th>12時オッズ</th><th>15時オッズ</th></tr>
     @foreach ($horses as $horse)
         <tr>
             <td>{{$horse->frame_number}}</td>
             <td>{{$horse->horse_number}}</td>
-            <td>{{$horse->name}}</td>
+            <td><a href="{{ route('horse.edit', ['id' => $horse->id]) }}">{{$horse->name}}</a></td>
+            <td>{{$horse->advance_odds}}</td>
+            <td>{{$horse->previous_odds}}</td>
+            <td>{{$horse->twelve_odds}}</td>
+            <td>{{$horse->fifteen_odds}}</td>
         </tr>
     @endforeach
     </table>
@@ -23,8 +27,8 @@
         <button type="button">出走馬追加</button>
     </a>
     <br>
-    {{-- horse?race_id=1からhorse/edit/1へのリンク --}}
-    <a href="{{ route('horse.edit', ['race_id' => $race_id]) }}">
+    {{-- horse更新 --}}
+    <a href="{{ route('horse.edit', ['id' => $horse->id]) }}">
         <button type="button">オッズ更新</button>
     </a>
     <br>
