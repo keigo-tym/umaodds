@@ -9,6 +9,8 @@ use App\Models\Horse;
 use Illuminate\Support\Facades\Redirect;
 // routeを使用
 use Illuminate\Support\Facades\Route;
+// httpを使用
+use Illuminate\Support\Facades\Http;
 
 class HorseController extends Controller
 {
@@ -18,6 +20,14 @@ class HorseController extends Controller
         $race_id = $request->input('race_id');
         $horses = Horse::where('race_id', $race_id)->get();
         return view('horse.index', ['horses' => $horses, 'race_id' => $race_id]);
+    }
+
+    // graphアクションを追加
+    public function graph(Request $request)
+    {
+        $race_id = $request->input('race_id');
+        $horses = Horse::where('race_id', $race_id)->get();
+        return view('horse.graph', compact('horses'));
     }
 
     public function add(Request $request)
