@@ -21,6 +21,10 @@
     </table>
     <button type="submit">オッズ更新</button>
 </form>
+{{-- horse.indexへ戻るボタン --}}
+<a href="{{ route('horse.index', ['race_id' => $horse->race_id]) }}">
+    <button type="button">戻る</button>
+</a>
 @endsection
 
 @section('footer')
