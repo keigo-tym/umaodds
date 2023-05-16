@@ -19,7 +19,7 @@
         var lineChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['advance_odds', 'previous_odds', 'twelve_odds', 'fifteen_odds'],
+                labels: ['前売りオッズ', '前日オッズ', '12時オッズ', '15時オッズ'],
                 datasets: horseNames.map((horseName, index) => ({
                     label: horseName,
                     borderColor: 'pink',
@@ -48,7 +48,7 @@
                         display: true,
                         title: {
                             display: true,
-                            text: 'Horse',
+                            text: '倍率',
                         },
                         ticks: {
                             stepSize: 1,

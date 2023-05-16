@@ -12,6 +12,10 @@
     .toppage {font-size: 16pt; color: #999;}
     th {background-color:orange; color: fff; padding:5px 10px;}
     td {border: solid 1px #aaa; color:#999; padding:5px 10px;}
+    canvas#lineChart {
+        max-width: 700px;
+        max-height: 500px;
+    }
     </style>
 </head>
 <body>
