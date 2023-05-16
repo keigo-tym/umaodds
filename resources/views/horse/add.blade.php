@@ -27,6 +27,23 @@
         <tr><th>twelve_odds:</th><td><input type="number" step="0.1" name="twelve_odds" value="{{old('twelve_odds')}}"></td></tr>
         {{-- fifteen_oddsの入力 --}}
         <tr><th>fifteen_odds:</th><td><input type="number" step="0.1" name="fifteen_odds" value="{{old('fifteen_odds')}}"></td></tr>
+        {{-- resultの入力 --}}
+        <tr><th>result:</th><td><input type="number" name="result" value="{{old('result')}}"></td></tr>
+        {{-- colorの入力 --}}
+        <tr>
+            <th>color:</th>
+            <td>
+                <select name="color">
+                    <option value="white" {{ old('color') === 'white' ? 'selected' : '' }}>White</option>
+                    <option value="black" {{ old('color') === 'black' ? 'selected' : '' }}>Black</option>
+                    <option value="red" {{ old('color') === 'red' ? 'selected' : '' }}>Red</option>
+                    <option value="blue" {{ old('color') === 'blue' ? 'selected' : '' }}>Blue</option>
+                    <option value="yellow" {{ old('color') === 'yellow' ? 'selected' : '' }}>Yellow</option>
+                    <option value="green" {{ old('color') === 'green' ? 'selected' : '' }}>Green</option>
+                    <option value="orange" {{ old('color') === 'orange' ? 'selected' : '' }}>Orange</option>
+                    <option value="pink" {{ old('color') === 'pink' ? 'selected' : '' }}>Pink</option>
+                </select>
+            </td>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
     </form>
