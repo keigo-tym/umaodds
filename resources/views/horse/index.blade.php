@@ -27,6 +27,11 @@
         <button type="button">出走馬追加</button>
     </a>
     <br>
+    {{-- horse.graphへ遷移するボタン --}}
+    <a href="{{ route('horse.graph', ['race_id' => request()->get('race_id')]) }}">
+        <button type="button">グラフ</button>
+    </a>
+    <br>
     {{-- race.indexへ戻るボタン --}}
     <a href="{{ route('race.index') }}">
         <button type="button">戻る</button>
