@@ -14,6 +14,7 @@
     <script>
         var horseData = {!! json_encode($horseData) !!};
         var horseNames = {!! json_encode($horseNames) !!};
+        var horseColors = {!! json_encode($horseColors) !!};
 
         var ctx = document.getElementById('lineChart').getContext('2d');
         var lineChart = new Chart(ctx, {
@@ -22,7 +23,7 @@
                 labels: ['前売りオッズ', '前日オッズ', '12時オッズ', '15時オッズ'],
                 datasets: horseNames.map((horseName, index) => ({
                     label: horseName,
-                    borderColor: 'pink',
+                    borderColor: horseColors[index],
                     data: [
                         horseData[index].advance_odds,
                         horseData[index].previous_odds,

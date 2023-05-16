@@ -30,6 +30,7 @@ class HorseController extends Controller
 
         $horseData = [];
         $horseNames = [];
+        $horseColors = [];
 
         foreach ($horses as $horse) {
             $horseData[] = [
@@ -40,10 +41,11 @@ class HorseController extends Controller
             ];
 
         $horseNames[] = $horse->name;
+        $horseColors[] = $horse->color;
         }    
 
         // viewに値を渡す
-        return view('horse.graph', compact('horseData', 'horseNames'));
+        return view('horse.graph', compact('horseData', 'horseNames', 'horseColors'));
     }
 
     public function add(Request $request)
