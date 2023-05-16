@@ -34,6 +34,7 @@
             <th>color:</th>
             <td>
                 <select name="color">
+                    <option value="">-----</option>
                     <option value="white" {{ old('color') === 'white' ? 'selected' : '' }}>White</option>
                     <option value="black" {{ old('color') === 'black' ? 'selected' : '' }}>Black</option>
                     <option value="red" {{ old('color') === 'red' ? 'selected' : '' }}>Red</option>

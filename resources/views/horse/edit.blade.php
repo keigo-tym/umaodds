@@ -23,6 +23,7 @@
             <th>色</th>
             <td>
                 <select name="color">
+                    <option value="">-----</option>
                     <option value="white" {{ $horse->color === 'white' ? 'selected' : '' }}>White</option>
                     <option value="black" {{ $horse->color === 'black' ? 'selected' : '' }}>Black</option>
                     <option value="red" {{ $horse->color === 'red' ? 'selected' : '' }}>Red</option>
