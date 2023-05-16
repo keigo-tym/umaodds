@@ -27,7 +27,13 @@ class HorseController extends Controller
     {
         $race_id = $request->input('race_id');
         $horses = Horse::where('race_id', $race_id)->get();
-        return view('horse.graph', compact('horses'));
+
+        // chart用の配列を作成
+        $labels = $horses->pluck('name')->toArray();
+        $data = $horses->pluck('advance_odds')->toArray();
+
+        // viewに値を渡す
+        return view('horse.graph', ['labels' => $labels, 'data' => $data]);
     }
 
     public function add(Request $request)
