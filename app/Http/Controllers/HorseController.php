@@ -28,12 +28,22 @@ class HorseController extends Controller
         $race_id = $request->input('race_id');
         $horses = Horse::where('race_id', $race_id)->get();
 
-        // chart用の配列を作成
-        $labels = $horses->pluck('name')->toArray();
-        $data = $horses->pluck('advance_odds')->toArray();
+        $horseData = [];
+        $horseNames = [];
+
+        foreach ($horses as $horse) {
+            $horseData[] = [
+                'advance_odds' => $horse->advance_odds,
+                'previous_odds' => $horse->previous_odds,
+                'twelve_odds' => $horse->twelve_odds,
+                'fifteen_odds' => $horse->fifteen_odds,
+            ];
+
+        $horseNames[] = $horse->name;
+        }    
 
         // viewに値を渡す
-        return view('horse.graph', ['labels' => $labels, 'data' => $data]);
+        return view('horse.graph', compact('horseData', 'horseNames'));
     }
 
     public function add(Request $request)
