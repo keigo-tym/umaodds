@@ -71,4 +71,8 @@
             },
         });
     </script>
+    {{-- horse.indexへ戻るボタン --}}
+    <a href="{{ route('horse.index', ['race_id' => request()->get('race_id')]) }}">
+        <button type="button">戻る</button>
+    </a>
 @endsection
