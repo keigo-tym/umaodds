@@ -18,6 +18,22 @@
         <tr><th>前日オッズ</th><td><input type="number" step="0.1" name="previous_odds" value="{{$horse->previous_odds}}"></td></tr>
         <tr><th>12時オッズ</th><td><input type="number" step="0.1" name="twelve_odds" value="{{$horse->twelve_odds}}"></td></tr>
         <tr><th>15時オッズ</th><td><input type="number" step="0.1" name="fifteen_odds" value="{{$horse->fifteen_odds}}"></td></tr>
+        <tr><th>着順</th><td><input type="number" name="result" value="{{$horse->result}}"></td></tr>
+        <tr>
+            <th>色</th>
+            <td>
+                <select name="color">
+                    <option value="white" {{ $horse->color === 'white' ? 'selected' : '' }}>White</option>
+                    <option value="black" {{ $horse->color === 'black' ? 'selected' : '' }}>Black</option>
+                    <option value="red" {{ $horse->color === 'red' ? 'selected' : '' }}>Red</option>
+                    <option value="blue" {{ $horse->color === 'blue' ? 'selected' : '' }}>Blue</option>
+                    <option value="yellow" {{ $horse->color === 'yellow' ? 'selected' : '' }}>Yellow</option>
+                    <option value="green" {{ $horse->color === 'green' ? 'selected' : '' }}>Green</option>
+                    <option value="orange" {{ $horse->color === 'orange' ? 'selected' : '' }}>Orange</option>
+                    <option value="pink" {{ $horse->color === 'pink' ? 'selected' : '' }}>Pink</option>
+                </select>
+            </td>
+        </tr>
     </table>
     <button type="submit">オッズ更新</button>
 </form>
