@@ -22,5 +22,7 @@ class Horse extends Model
         'previous_odds' => 'nullable|numeric',
         'twelve_odds' => 'nullable|numeric',
         'fifteen_odds' => 'nullable|numeric',
+        'color' => 'nullable',
+        'result' => 'nullable|integer',
     );
 }
