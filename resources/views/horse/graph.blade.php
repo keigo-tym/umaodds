@@ -30,6 +30,7 @@
                         horseData[index].twelve_odds,
                         horseData[index].fifteen_odds,
                     ],
+                    hidden: true,
                     fill: false,
                 })),
             },
