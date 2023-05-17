@@ -15,6 +15,7 @@
     canvas#lineChart {
         max-width: 700px;
         max-height: 500px;
+        background-color: #eaeaea;
     }
     </style>
 </head>
