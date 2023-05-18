@@ -79,7 +79,7 @@ class HorseController extends Controller
         return view('horse.edit_race', compact('horses', 'race_id'));
     }
 
-    public function update(Request $request, $id)
+    public function updateHorse(Request $request, $id)
     {
         // 入力はオッズのみ
         $this->validate($request, ['advance_odds' => 'nullable|numeric', 'previous_odds' => 'nullable|numeric', 'twelve_odds' => 'nullable|numeric', 'fifteen_odds' => 'nullable|numeric']);
