@@ -9,7 +9,7 @@
 
 @section('content')
     <table>
-    <tr><th>枠番</th><th>馬番</th><th>馬名</th><th><a href="{{ route('horse.edit_all', ['race_id' => $request->race_id]) }}">前売りオッズ</a></th><th>前日オッズ</th><th>12時オッズ</th><th>15時オッズ</th><th>着順</th><th>色</th></tr>
+    <tr><th>枠番</th><th>馬番</th><th>馬名</th><th>前売りオッズ</a></th><th>前日オッズ</th><th>12時オッズ</th><th>15時オッズ</th><th>着順</th><th>色</th></tr>
     @foreach ($horses as $horse)
         <tr>
             <td>{{$horse->frame_number}}</td>
@@ -27,6 +27,11 @@
     {{-- horse追加ボタン --}}
     <a href="{{ route('horse.add', ['race_id' => request()->get('race_id')]) }}">
         <button type="button">出走馬追加</button>
+    </a>
+    <br>
+    {{-- horse.edit_allへ遷移するボタン --}}
+    <a href="{{ route('horse.edit_all', ['race_id' => $request->race_id]) }}">
+        <button type="button">オッズ一括編集</button>
     </a>
     <br>
     {{-- horse.graphへ遷移するボタン --}}
