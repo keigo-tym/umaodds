@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('horse.updateHorse', ['id' => $horse->id]) }}" method="post">
+<form action="{{ route('horse.update', ['id' => $horse->id]) }}" method="post">
     @csrf
     <table>
         <tr><th>枠番</th><td>{{$horse->frame_number}}</td></tr>
