@@ -40,7 +40,7 @@ Route::get('horse/{race_id}/edit_all', 'App\Http\Controllers\HorseController@edi
 // horse.updateへのルーティング
 Route::post('horse/{id}', 'App\Http\Controllers\HorseController@update')->name('horse.update');
 // horse.update_allへのルーティング
-Route::post('horse/{id}', 'App\Http\Controllers\HorseController@updateAll')->name('horse.update_all');
+Route::post('horse/{id}/update_all', 'App\Http\Controllers\HorseController@updateAll')->name('horse.update_all');
 
 // horse.graphへのルーティング
 Route::get('horse/graph', 'App\Http\Controllers\HorseController@graph')->name('horse.graph');
