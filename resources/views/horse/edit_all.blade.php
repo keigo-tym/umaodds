@@ -1,6 +1,6 @@
 @extends('layouts.umaodds')
 
-@section('title', 'Horse.edit')
+@section('title', 'Odds.edit')
 
 @section('menubar')
     @parent
