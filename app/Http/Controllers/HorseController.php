@@ -97,13 +97,24 @@ class HorseController extends Controller
     // race_idごとのupdate
     public function updateAll(Request $request, $race_id)
     {
-        // dd($request->all());
+        // バリデーション
+        $this->validate($request, [
+            'horses.*.id' => 'required|exists:horses,id',
+            'horses.*.advance_odds' => 'nullable|numeric',
+            'horses.*.previous_odds' => 'nullable|numeric',
+            'horses.*.twelve_odds' => 'nullable|numeric',
+            'horses.*.fifteen_odds' => 'nullable|numeric',
+        ]);
+
         $horsesData = $request->input('horses');
     
         foreach ($horsesData as $horseData) {
             $horse = Horse::find($horseData['id']);
             if ($horse) {
                 $horse->advance_odds = $horseData['advance_odds'];
+                $horse->previous_odds = $horseData['previous_odds'];
+                $horse->twelve_odds = $horseData['twelve_odds'];
+                $horse->fifteen_odds = $horseData['fifteen_odds'];
                 $horse->save();
             }
         }
