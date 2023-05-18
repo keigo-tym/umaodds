@@ -64,19 +64,10 @@ class HorseController extends Controller
         return Redirect::to(Route::has('horse.index') ? route('horse.index', ['race_id' => $race_id]) : '/horse?race_id=' . $race_id);
     }
     // idごとにホースを表示する
-    public function edit($id, Request $request)
+    public function edit($id)
     {
         $horse = Horse::find($id);
-
-        // horseのidごとの更新
-        if ($horse->id) {
-            return view('horse.edit_horse', ['horse' => $horse]);
-        }
-
-        // race_idを取得し更新
-        $race_id = $horse->race_id;
-        $horses = Horse::where('race_id', $race_id)->get();
-        return view('horse.edit_race', compact('horses', 'race_id'));
+        return view('horse.edit', ['horse' => $horse]);
     }
 
     public function update(Request $request, $id)
