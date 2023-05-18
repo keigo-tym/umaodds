@@ -29,6 +29,7 @@
         <button type="button">出走馬追加</button>
     </a>
     <br>
+    @if($horses->isNotEmpty())
     {{-- horse.edit_allへ遷移するボタン --}}
     <a href="{{ route('horse.edit_all', ['race_id' => $request->race_id]) }}">
         <button type="button">オッズ一括編集</button>
@@ -39,6 +40,7 @@
         <button type="button">グラフ</button>
     </a>
     <br>
+    @endif
     {{-- race.indexへ戻るボタン --}}
     <a href="{{ route('race.index') }}">
         <button type="button">戻る</button>
