@@ -19,7 +19,7 @@ class HorseController extends Controller
         // race_idによる検索
         $race_id = $request->input('race_id');
         $horses = Horse::where('race_id', $race_id)->get();
-        return view('horse.index', ['horses' => $horses, 'race_id' => $race_id]);
+        return view('horse.index', ['horses' => $horses, 'race_id' => $race_id, 'request' => $request]);
     }
 
     // graphアクションを追加
@@ -86,4 +86,27 @@ class HorseController extends Controller
         return redirect()->route('horse.index', ['race_id' => $race_id]);
     }
 
+    // race_idごとにホースを更新する
+    // advance_oddsのみ更新
+    public function editAll($race_id)
+    {
+        $horses = Horse::where('race_id', $race_id)->get();
+        return view('horse.edit_all', ['horses' => $horses, 'race_id' => $race_id]);
+    }
+
+    // race_idごとのupdate
+    public function updateAll(Request $request, $race_id)
+    {
+        // dd($request->all());
+        $horsesData = $request->input('horses');
+    
+        foreach ($horsesData as $horseData) {
+            $horse = Horse::find($horseData['id']);
+            if ($horse) {
+                $horse->advance_odds = $horseData['advance_odds'];
+                $horse->save();
+            }
+        }
+        return redirect()->route('horse.index', ['race_id' => $race_id]);
+    }
 }
