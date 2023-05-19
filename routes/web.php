@@ -32,6 +32,11 @@ Route::get('horse/add', 'App\Http\Controllers\HorseController@add')->name('horse
 // horse.createへのルーティング
 Route::post('horse/add', 'App\Http\Controllers\HorseController@create');
 
+// horse.add_allへのルーティング
+Route::get('horse/add_all', 'App\Http\Controllers\HorseController@addAll')->name('horse.add_all');
+// horse.create_allへのルーティング
+Route::post('horse/add_all', 'App\Http\Controllers\HorseController@createAll')->name('horse.create_all');
+
 // horse.editへのルーティング
 Route::get('horse/{id}/edit', 'App\Http\Controllers\HorseController@edit')->name('horse.edit');
 // horse.edit_allへのルーティング

@@ -29,6 +29,11 @@
         <button type="button">出走馬追加</button>
     </a>
     <br>
+    {{-- horse.add_allへ遷移するボタン --}}
+    <a href="{{ route('horse.add_all', ['race_id' => request()->get('race_id')]) }}">
+        <button type="button">出走馬一斉追加</button>
+    </a>
+    <br>
     @if($horses->isNotEmpty())
     {{-- horse.edit_allへ遷移するボタン --}}
     <a href="{{ route('horse.edit_all', ['race_id' => $request->race_id]) }}">

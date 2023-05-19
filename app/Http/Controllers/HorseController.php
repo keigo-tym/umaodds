@@ -48,6 +48,7 @@ class HorseController extends Controller
         return view('horse.graph', compact('horseData', 'horseNames', 'horseColors'));
     }
 
+    // 1件ずつホースを追加する
     public function add(Request $request)
     {
         return view('horse.add');
@@ -63,7 +64,38 @@ class HorseController extends Controller
         $race_id = $request->input('race_id');
         return Redirect::to(Route::has('horse.index') ? route('horse.index', ['race_id' => $race_id]) : '/horse?race_id=' . $race_id);
     }
-    // idごとにホースを表示する
+
+    // レースごとにhorseを追加する
+    public function addAll(Request $request)
+    {
+        return view('horse.add_all');
+    }
+
+    public function createAll(Request $request)
+    {
+        $this->validate($request, [
+            'horses.*.frame_number' => 'required|integer',
+            'horses.*.horse_number' => 'required|integer',
+            'horses.*.name' => 'required',
+            'horses.*.color' => 'nullable|string',
+        ]);
+
+        $horseData = $request->input('horses');
+        $race_id = $request->input('race_id');
+
+        foreach ($horsesData as $horseData) {
+            $horse = new Horse;
+            $horse->frame_number = $horseData['frame_number'];
+            $horse->horse_number = $horseData['hors_enumber'];
+            $horse->name = $horseData['name'];
+            $horse->color = $horseData['color'];
+
+            $horse->save();
+        }
+        return redirect()->route('horse.index', ['race_id' => $race_id]);
+    }
+
+    // idごとにホースを更新する
     public function edit($id)
     {
         $horse = Horse::find($id);
@@ -87,14 +119,13 @@ class HorseController extends Controller
     }
 
     // race_idごとにホースを更新する
-    // advance_oddsのみ更新
     public function editAll($race_id)
     {
         $horses = Horse::where('race_id', $race_id)->get();
         return view('horse.edit_all', ['horses' => $horses, 'race_id' => $race_id]);
     }
 
-    // race_idごとのupdate
+    // oddsをまとめてupdate
     public function updateAll(Request $request, $race_id)
     {
         // バリデーション
