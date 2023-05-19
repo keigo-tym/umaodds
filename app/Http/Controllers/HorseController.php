@@ -106,7 +106,7 @@ class HorseController extends Controller
     public function update(Request $request, $id)
     {
         // 入力はオッズのみ
-        $this->validate($request, ['advance_odds' => 'nullable|numeric', 'previous_odds' => 'nullable|numeric', 'twelve_odds' => 'nullable|numeric', 'fifteen_odds' => 'nullable|numeric']);
+        $this->validate($request, ['advance_odds' => 'nullable|numeric', 'previous_odds' => 'nullable|numeric', 'twelve_odds' => 'nullable|numeric', 'fifteen_odds' => 'nullable|numeric', 'frame_number' => 'required|integer', 'horse_number' => 'required|integer', 'name' => 'required', 'color' => 'nullable' ]);
 
         // ホースidごとにオッズを更新
         $horse = Horse::find($id);
