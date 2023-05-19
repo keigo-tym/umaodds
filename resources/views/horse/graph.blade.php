@@ -78,3 +78,7 @@
         <button type="button">戻る</button>
     </a>
 @endsection
+
+@section('footer')
+copyright 2023 kei
+@endsection
