@@ -74,22 +74,23 @@ class HorseController extends Controller
     public function createAll(Request $request)
     {
         $this->validate($request, [
+            'race_id' => 'required|integer',
             'horses.*.frame_number' => 'required|integer',
             'horses.*.horse_number' => 'required|integer',
             'horses.*.name' => 'required',
-            'horses.*.color' => 'nullable|string',
+            'horses.*.color' => 'nullable',
         ]);
 
-        $horseData = $request->input('horses');
+        $horsesData = $request->input('horses');
         $race_id = $request->input('race_id');
 
         foreach ($horsesData as $horseData) {
             $horse = new Horse;
             $horse->frame_number = $horseData['frame_number'];
-            $horse->horse_number = $horseData['hors_enumber'];
+            $horse->horse_number = $horseData['horse_number'];
             $horse->name = $horseData['name'];
             $horse->color = $horseData['color'];
-
+            $horse->race_id = $race_id;
             $horse->save();
         }
         return redirect()->route('horse.index', ['race_id' => $race_id]);

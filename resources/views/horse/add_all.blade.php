@@ -17,7 +17,7 @@
             <input type="hidden" name="race_id" value="{{ request()->get('race_id') }}">
             <td><input type="number" name="horses[0][frame_number]" value="{{old('horses.0.frame_number')}}"></td>
             <td><input type="number" name="horses[0][horse_number]" value="{{old('horses.0.horse_number')}}"></td>
-            <td><input type="text" name="horses[0][name]" value="{{old('name')}}"></td>
+            <td><input type="text" name="horses[0][name]" value="{{old('horse.0.name')}}"></td>
             <td>
                 <select name="horses[0][color]">
                     <option value="">-----</option>
@@ -37,18 +37,9 @@
     <button type="submit">出走馬追加</button>
 </form>
 
-<script>
-    if (typeof jQuery == 'undefined') {
-        var script = document.createElement('script');
-        script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-        script.onload = function() {
-            // jQuery loaded and ready to use
-        };
-        document.body.appendChild(script);
-    } else {
-        // jQuery already loaded and ready to use
-    }
-</script>
+<script> var raceId = "{{ request()->get('race_id') }}"; </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/add.js') }}"></script>
 
 {{-- horse.indexへ戻るボタン --}}
 <a href="{{ route('horse.index', ['race_id' => request()->get('race_id')]) }}">
