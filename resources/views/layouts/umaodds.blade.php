@@ -42,6 +42,15 @@
     .red-cell {
         color: #ff0000;
     }
+    .gold-cell {
+        color: gold;
+    }
+    .silver-cell {
+        color: silver;
+    }
+    .copper-cell {
+        color: #cd7f32;
+    }
     </style>
 </head>
 <body>

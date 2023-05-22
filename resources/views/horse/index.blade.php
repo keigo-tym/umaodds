@@ -20,7 +20,7 @@
                 <td class="{{ $horse->previous_odds <= 10 ? 'red-cell' :'' }}">{{$horse->previous_odds}}</td>
                 <td class="{{ $horse->twelve_odds <= 10 ? 'red-cell' :'' }}">{{$horse->twelve_odds}}</td>
                 <td class="{{ $horse->fifteen_odds <= 10 ? 'red-cell' :'' }}">{{$horse->fifteen_odds}}</td>
-                <td>{{$horse->result}}</td>
+                <td class="{{ $horse->reasult == 1 ? 'gold-cell' : ($horse->result == 2 ? 'silver-cell' : ($horse->result == 3 ?  'copper-cell' : ''))}}">{{$horse->result}}</td>
             </tr>
         @endforeach
     </table>
