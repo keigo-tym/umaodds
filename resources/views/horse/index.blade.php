@@ -9,7 +9,7 @@
 
 @section('content')
     <table>
-    <tr><th>枠番</th><th>馬番</th><th>馬名</th><th>前売りオッズ</a></th><th>前日オッズ</th><th>12時オッズ</th><th>15時オッズ</th><th>着順</th><th>色</th></tr>
+    <tr><th>枠番</th><th>馬番</th><th>馬名</th><th>前売りオッズ</a></th><th>前日オッズ</th><th>12時オッズ</th><th>15時オッズ</th><th>着順</th></tr>
     @foreach ($horses as $horse)
         <tr>
             <td>{{$horse->frame_number}}</td>
@@ -20,7 +20,6 @@
             <td>{{$horse->twelve_odds}}</td>
             <td>{{$horse->fifteen_odds}}</td>
             <td>{{$horse->result}}</td>
-            <td>{{$horse->color}}</td>
         </tr>
     @endforeach
     </table>
