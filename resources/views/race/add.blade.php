@@ -8,8 +8,9 @@
 @endsection
 
 @section('content')
+<div class="container">
     <form action="/race/add" method="post">
-    <table>
+    <table class="horse-table">
         @csrf
         <tr><th>name: </th><td><input type="text" name="name" value="{{old('name')}}"></td></tr>
         <tr><th>date: </th><td><input type="text" name="date" value="{{old('date')}}"></td></tr>
@@ -19,10 +20,13 @@
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
     </form>
-    {{-- race.indexへ戻るボタン --}}
-    <a href="{{ route('race.index') }}">
-        <button type="button">戻る</button>
-    </a>
+    <div class="button-frame">
+        {{-- race.indexへ戻るボタン --}}
+        <a href="{{ route('race.index') }}">
+            <button type="button">戻る</button>
+        </a>
+    </div>
+</div>
 @endsection
 
 @section('footer')

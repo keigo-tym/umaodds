@@ -31,7 +31,6 @@
         flex-wrap: wrap;
         justify-content: space-around;
         width: 50%;
-        border : 1px solid #ccc;
         padding: 10px;
         margin-bottom: 5px;
     }

@@ -8,8 +8,9 @@
 @endsection
 
 @section('content')
+<div class="container">
     <form action="/horse/add" method="post">
-    <table>
+    <table class="horse-table">
         @csrf
         {{-- race_idの入力 hidden要素を用いて、race_idを渡す --}}
         <input type="hidden" name="race_id" value="{{ request()->get('race_id') }}">
@@ -51,11 +52,13 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('js/color.js') }}"></script>
-
-    {{-- horse.indexへ戻るボタン --}}
-    <a href="{{ route('horse.index', ['race_id' => request()->get('race_id')]) }}">
-        <button type="button">戻る</button>
-    </a>
+    <div class="button-frame">
+        {{-- horse.indexへ戻るボタン --}}
+        <a href="{{ route('horse.index', ['race_id' => request()->get('race_id')]) }}">
+            <button type="button">戻る</button>
+        </a>
+    </div>
+</div>
 @endsection
 
 @section('footer')
