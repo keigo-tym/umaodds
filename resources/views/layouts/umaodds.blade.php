@@ -17,6 +17,28 @@
         max-height: 500px;
         background-color: #eaeaea;
     }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .horse-table {
+        width: 70%;
+        margin-bottom: 5px;
+    }
+    .button-frame {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 50%;
+        border : 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .button-frame a {
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
     </style>
 </head>
 <body>
