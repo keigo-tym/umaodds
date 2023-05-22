@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var formContainer = $('#form-container');
     var addButton = $('#add-field-button');
-    var counter = 1;
+    var counter = 0;
 
     addButton.on('click', function() {
         var newRow = $('<tr>');
