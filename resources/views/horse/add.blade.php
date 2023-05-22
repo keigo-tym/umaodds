@@ -14,7 +14,7 @@
         {{-- race_idの入力 hidden要素を用いて、race_idを渡す --}}
         <input type="hidden" name="race_id" value="{{ request()->get('race_id') }}">
         {{-- frame_numberの入力 --}}
-        <tr><th>frame_number:</th><td><input type="number" name="frame_number" value="{{old('frame_number')}}"></td></tr>
+        <tr><th>frame_number:</th><td><input type="number" name="frame_number" id="frame_number" value="{{old('frame_number')}}"></td></tr>
         {{-- horse_numberの入力 --}}
         <tr><th>horse_number:</th><td><input type="number" name="horse_number" value="{{old('horse_number')}}"></td></tr>
         {{-- nameの入力 --}}
@@ -33,21 +33,25 @@
         <tr>
             <th>color:</th>
             <td>
-                <select name="color">
+                <select name="color" id="color">
                     <option value="">-----</option>
-                    <option value="white" {{ old('color') === 'white' ? 'selected' : '' }}>White</option>
-                    <option value="black" {{ old('color') === 'black' ? 'selected' : '' }}>Black</option>
-                    <option value="red" {{ old('color') === 'red' ? 'selected' : '' }}>Red</option>
-                    <option value="blue" {{ old('color') === 'blue' ? 'selected' : '' }}>Blue</option>
-                    <option value="yellow" {{ old('color') === 'yellow' ? 'selected' : '' }}>Yellow</option>
-                    <option value="green" {{ old('color') === 'green' ? 'selected' : '' }}>Green</option>
-                    <option value="orange" {{ old('color') === 'orange' ? 'selected' : '' }}>Orange</option>
-                    <option value="pink" {{ old('color') === 'pink' ? 'selected' : '' }}>Pink</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="orange">Orange</option>
+                    <option value="pink">Pink</option>
                 </select>
             </td>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
     </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/color.js') }}"></script>
+
     {{-- horse.indexへ戻るボタン --}}
     <a href="{{ route('horse.index', ['race_id' => request()->get('race_id')]) }}">
         <button type="button">戻る</button>
