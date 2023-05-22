@@ -39,6 +39,9 @@
         text-decoration: none;
         margin-bottom: 10px;
     }
+    .red-cell {
+        color: #ff0000;
+    }
     </style>
 </head>
 <body>

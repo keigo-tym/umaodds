@@ -16,10 +16,10 @@
                 <td>{{$horse->frame_number}}</td>
                 <td>{{$horse->horse_number}}</td>
                 <td><a href="{{ route('horse.edit', ['id' => $horse->id]) }}">{{$horse->name}}</a></td>
-                <td>{{$horse->advance_odds}}</td>
-                <td>{{$horse->previous_odds}}</td>
-                <td>{{$horse->twelve_odds}}</td>
-                <td>{{$horse->fifteen_odds}}</td>
+                <td class="{{ $horse->advance_odds <= 10 ? 'red-cell' :'' }}">{{$horse->advance_odds}}</td>
+                <td class="{{ $horse->previous_odds <= 10 ? 'red-cell' :'' }}">{{$horse->previous_odds}}</td>
+                <td class="{{ $horse->twelve_odds <= 10 ? 'red-cell' :'' }}">{{$horse->twelve_odds}}</td>
+                <td class="{{ $horse->fifteen_odds <= 10 ? 'red-cell' :'' }}">{{$horse->fifteen_odds}}</td>
                 <td>{{$horse->result}}</td>
             </tr>
         @endforeach
